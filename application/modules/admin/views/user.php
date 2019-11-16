@@ -1,10 +1,8 @@
 <h3 class="center-align">Users Menu</h3>
 
 <div class="row">
-
-<a href="<?=site_url('admin/form_tambah_user')?>" class="btn waves-effect waves-light btn-small">Tambah User
-    <i class="material-icons right">add</i>
-  </a>
+<?=$this->session->flashdata('message');?>
+<a href="<?=site_url('admin/form_tambah_user')?>" class="btn tooltipped green animate fadeUp"  data-position="top" data-tooltip="Tambah User"><i class="material-icons ">add</i></a>
 
 <table class="striped highlight responsive-table animate fadeLeft">
         <thead>
@@ -28,8 +26,8 @@
             <td><?=$row->level?></td>
             <td><?=$row->status?></td>
             <td>
-            <a href="<?=site_url('admin/editUser')?>" class="btn tooltipped green accent-3"  data-position="top" data-tooltip="Edit"><i class="material-icons ">create</i></a>
-            <a href="<?=site_url('admin/deleteUser')?>" class=" btn tooltipped red darken-1"  data-position="top" data-tooltip="Hapus""><i class="material-icons">delete</i></a>
+            <a href="<?=site_url('admin/form_edit_user/').$row->id_pengguna?>" class="btn tooltipped blue"  data-position="top" data-tooltip="Edit"><i class="material-icons ">create</i></a>
+            <a href="<?=site_url('admin/deleteUser/').$row->id_pengguna?>" class=" btn tooltipped red"  data-position="top" data-tooltip="Hapus""><i class="material-icons">delete</i></a>
             </td>
           </tr>
         <?php endforeach;?>

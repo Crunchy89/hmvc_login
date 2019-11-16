@@ -1,14 +1,14 @@
-
+<?php foreach($user as $row):?>
 <div class="col s12 m12 l12">
     <div id="Form-advance" class="card card card-default scrollspy">
-<h3 class="center-align animate fadeUp">Tambah Data</h3>
+<h3 class="center-align animate fadeUp">Edit Data</h3>
         <div class="card-content">
 <h4 class="card-title animate fadeUp">Form Advance</h4>
         <?=$this->session->flashdata('ada')?>
             <form class="col s12" action="<?=site_url('admin/form_tambah_user')?>" method="post">
                 <div class="row">
                     <div class="input-field col s12 animate fadeLeft">
-                        <input id="nama" type="text" name="nama" value="<?=set_value('nama')?>">
+                        <input id="nama" type="text" name="nama" value="<?=$row['nama_lengkap']?>">
                         <?php if(form_error('nama')):?>
                         <label for="nama" class="center-align red-text"><?=form_error('nama')?></label>
                         <?php else:?>
@@ -81,3 +81,4 @@
     </div>
 </div>
 </div>
+                        <?php endforeach;?>
