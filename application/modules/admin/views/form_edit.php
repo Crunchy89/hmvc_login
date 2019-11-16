@@ -1,4 +1,3 @@
-<?php foreach($user as $row):?>
 <div class="col s12 m12 l12">
     <div id="Form-advance" class="card card card-default scrollspy">
 <h3 class="center-align animate fadeUp">Edit Data</h3>
@@ -8,7 +7,7 @@
             <form class="col s12" action="<?=site_url('admin/form_tambah_user')?>" method="post">
                 <div class="row">
                     <div class="input-field col s12 animate fadeLeft">
-                        <input id="nama" type="text" name="nama" value="<?=$row['nama_lengkap']?>">
+                        <input id="nama" type="text" name="nama" value="<?=$user['nama_lengkap']?>">
                         <?php if(form_error('nama')):?>
                         <label for="nama" class="center-align red-text"><?=form_error('nama')?></label>
                         <?php else:?>
@@ -18,7 +17,7 @@
                 </div>
                 <div class="row">
                     <div class="input-field col s12  animate fadeRight">
-                        <input id="username" name="username" type="text" value="<?=set_value('username')?>">
+                        <input id="username" name="username" type="text" value="<?=$user['username']?>">
                         <?php if(form_error('username')):?>
                         <label for="ussername" class="center-align red-text"><?=form_error('username')?></label>
                         <?php else:?>
@@ -28,7 +27,7 @@
                 </div>
                 <div class="row">
                     <div class="input-field col s12  animate fadeLeft">
-                        <input id="password" name="password" type="password">
+                        <input id="password" name="password" type="text" value="<?=$user['password']?>">
                         <?php if(form_error('password')):?>
                         <label for="password" class="center-align red-text"><?=form_error('password')?></label>
                         <?php else:?>
@@ -40,7 +39,7 @@
                     <div class="input-field col m6 s12  animate fadeRight">
                         <div class="select-wrapper">
                             <select tabindex="-1" name="level" id="level">
-                                <option value="<?=set_value('level')?>" disabled="" selected="">Choose Level</option>
+                                <option value="<?=$user['level']?>" disabled="" selected="">Choose Level</option>
                                 <option value="Admin">Admin</option>
                                 <option value="User">User</option>
                             </select></div>
@@ -53,7 +52,7 @@
                     <div class="input-field col m6 s12  animate fadeLeft">
                         <div class="select-wrapper">
                             <select tabindex="-1" name="status" id="status">
-                                <option value="<?=set_value('status')?>" disabled="" selected="">Choose Status</option>
+                                <option value="<?=$user['status']?>" disabled="" selected="">Choose Status</option>
                                 <option value="active">active</option>
                                 <option value="inactive">inactive</option>
                             </select></div>
@@ -81,4 +80,3 @@
     </div>
 </div>
 </div>
-                        <?php endforeach;?>
