@@ -2,7 +2,7 @@
 
 <div class="row">
 
-<a href="<?=site_url('admin/addUser')?>" class="btn waves-effect waves-light btn-small">Tambah User
+<a href="<?=site_url('admin/form_tambah_user')?>" class="btn waves-effect waves-light btn-small">Tambah User
     <i class="material-icons right">add</i>
   </a>
 

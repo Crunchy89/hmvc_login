@@ -23,6 +23,11 @@ public function user(){
     admin_page('user',$data);
 }
 
+public function form_tambah_user(){
+    $data['title']='Tambah User';
+    admin_page('form_tambah',$data);
+}
+
 public function logout(){
     $this->admin_model->signOut();
 }
