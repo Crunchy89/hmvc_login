@@ -37,15 +37,21 @@ public function form_tambah_user(){
 
 public function form_edit_user(){
     $model = $this->admin_model;
-    // $validation = $this->form_validation;
-    // $validation->set_rules($model->user_rules());
-    // if($validation->run()){
-    //     $model->user_edit();
-    // }else{
+    $validation = $this->form_validation;
+    $validation->set_rules($model->edit_rules());
+    if($validation->run()){
+        $model->user_edit();
+    }else{
+        $id=$this->uri->segment('3');
         $data['title']='Edit User';
-        $data['user']=$model->getUser_where();
+        $data['user']=$model->getUser_where($id);
         admin_page('form_edit',$data);
-    // }
+    }
+}
+
+public function deleteUser(){
+    $model = $this->admin_model;
+    $model->user_delete();
 }
 
 public function logout(){

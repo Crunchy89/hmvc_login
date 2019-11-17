@@ -50,11 +50,39 @@ class Admin_model extends CI_Model{
     ];
   }
 
+  public function edit_rules(){
+    return [
+      [
+        'field' => 'nama',
+        'label' => 'Nama',
+        'rules'  => 'trim|required',
+        'errors' => array(
+            'required' => 'Field %s tidak boleh kosong'
+        )
+        ],
+    [
+      'field' => 'level',
+      'label' => 'Level',
+      'rules'  => 'required',
+      'errors' => array(
+          'required' => 'Field %s tidak boleh kosong'
+      )
+      ],
+      [
+        'field' => 'status',
+        'label' => 'Status',
+        'rules'  => 'required',
+        'errors' => array(
+            'required' => 'Field %s tidak boleh kosong'
+        )
+        ]
+    ];
+  }
+
     public function getUser(){
       return  $this->db->get('pengguna')->result();
     }
-    public function getUser_where(){
-      $id=$this->uri->segment('3');
+    public function getUser_where($id){
       return  $this->db->get_where('pengguna',['id_pengguna' => $id ])->row_array();
     }
 
@@ -86,6 +114,32 @@ class Admin_model extends CI_Model{
         </div>');
         redirect('user');
     }
+    }
+
+    public function user_edit(){
+    
+    $id=htmlspecialchars($this->input->post('id'));
+    $nama=htmlspecialchars($this->input->post('nama'));
+    $level=htmlspecialchars($this->input->post('level'));
+    $status=htmlspecialchars($this->input->post('status'));
+    $this->db->set('nama_lengkap',$nama);
+    $this->db->set('level',$level);
+    $this->db->set('status',$status);
+    $this->db->where('id_pengguna',$id);
+    $this->db->update('pengguna');
+    $this->session->set_flashdata('message','<div class="card-alert card green lighten-5">
+        <div class="card-content green-text center-align">
+        <p>Data Berhasil Diubah</p>
+        </div>
+        </div>');
+        redirect('admin/user');
+    }
+
+    public function user_delete(){
+      $id=$this->uri->segment('3');
+      $this->db->where('id_pengguna',$id);
+      $this->db->delete('pengguna');
+      redirect('admin/user');
     }
 
     public function signOut(){

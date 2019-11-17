@@ -4,9 +4,10 @@
         <div class="card-content">
 <h4 class="card-title animate fadeUp">Form Advance</h4>
         <?=$this->session->flashdata('ada')?>
-            <form class="col s12" action="<?=site_url('admin/form_tambah_user')?>" method="post">
+            <form class="col s12" action="<?=site_url('admin/form_edit_user')?>" method="post">
                 <div class="row">
                     <div class="input-field col s12 animate fadeLeft">
+                        <input type="hidden" name="id" value="<?=$this->uri->segment('3')?>">
                         <input id="nama" type="text" name="nama" value="<?=$user['nama_lengkap']?>">
                         <?php if(form_error('nama')):?>
                         <label for="nama" class="center-align red-text"><?=form_error('nama')?></label>
@@ -16,30 +17,10 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="input-field col s12  animate fadeRight">
-                        <input id="username" name="username" type="text" value="<?=$user['username']?>">
-                        <?php if(form_error('username')):?>
-                        <label for="ussername" class="center-align red-text"><?=form_error('username')?></label>
-                        <?php else:?>
-                        <label for="username" class="center-align">Username</label>
-                        <?php endif;?>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s12  animate fadeLeft">
-                        <input id="password" name="password" type="text" value="<?=$user['password']?>">
-                        <?php if(form_error('password')):?>
-                        <label for="password" class="center-align red-text"><?=form_error('password')?></label>
-                        <?php else:?>
-                        <label for="password" class="center-align">Password</label>
-                        <?php endif;?>
-                    </div>
-                </div>
-                <div class="row">
                     <div class="input-field col m6 s12  animate fadeRight">
                         <div class="select-wrapper">
                             <select tabindex="-1" name="level" id="level">
-                                <option value="<?=$user['level']?>" disabled="" selected="">Choose Level</option>
+                                <option value="<?=$user['level']?>">Choose Level</option>
                                 <option value="Admin">Admin</option>
                                 <option value="User">User</option>
                             </select></div>
@@ -52,7 +33,7 @@
                     <div class="input-field col m6 s12  animate fadeLeft">
                         <div class="select-wrapper">
                             <select tabindex="-1" name="status" id="status">
-                                <option value="<?=$user['status']?>" disabled="" selected="">Choose Status</option>
+                                <option value="<?=$user['status']?>">Choose Status</option>
                                 <option value="active">active</option>
                                 <option value="inactive">inactive</option>
                             </select></div>
@@ -65,13 +46,13 @@
                 </div>
                 <div class="row animate fadeUp">
                     <div class="input-field col m6 s12">
-                        <a href="<?=site_url('admin/user')?>" class="btn red waves-effect waves-light left">Kembali
+                        <a href="<?=site_url('admin/user')?>" class="btn red waves-effect waves-light right">Kembali
                             <i class="material-icons left">replay</i>
                         </a>
                     </div>
                     <div class="input-field col m6 s12">
-                        <button class="btn cyan waves-effect waves-light right" type="submit">Tambah
-                            <i class="material-icons right">send</i>
+                        <button class="btn cyan waves-effect waves-light right" type="submit">Simpan
+                            <i class="material-icons right">sd_card</i>
                         </button>
                     </div>
                 </div>
