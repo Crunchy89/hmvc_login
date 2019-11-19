@@ -43,7 +43,7 @@
             </ul>
             <!-- profile-dropdown-->
             <ul class="dropdown-content" id="profile-dropdown">
-              <li><a class="grey-text text-darken-1" href="user-profile-page.html"><i class="material-icons">person_outline</i> Profile</a></li>
+              <li><a class="grey-text text-darken-1" href="<?=site_url('profile')?>"><i class="material-icons">person_outline</i> Profile</a></li>
               <li><a class="grey-text text-darken-1" href="<?=site_url('admin/logout')?>"><i class="material-icons">keyboard_tab</i> Logout</a></li>
             </ul>
           </div>
@@ -66,7 +66,7 @@
         </li>
         <li class="navigation-header"><a class="navigation-header-text">Menu</a><i class="navigation-header-icon material-icons">more_horiz</i>
         </li>
-        <li class="bold"><a class="waves-effect waves-cyan " href="app-email.html"><i class="material-icons">person_outline</i><span class="menu-title" data-i18n="">Edit Profile</span></a>
+        <li class="bold"><a class="waves-effect waves-cyan " href="<?=site_url('profile')?>"><i class="material-icons">person_outline</i><span class="menu-title" data-i18n="">Edit Profile</span></a>
         </li>
         <li class="bold"><a class="waves-effect waves-cyan " href="<?=site_url('admin/logout')?>"><i class="material-icons">logout</i><span class="menu-title" data-i18n="">Logout</span></a>
         </li>

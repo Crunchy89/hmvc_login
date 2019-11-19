@@ -144,6 +144,10 @@ class Admin_model extends CI_Model{
 
     public function signOut(){
     $this->session->unset_userdata('siteman');
+    $this->session->unset_userdata('id');
+    $this->session->unset_userdata('nama');
+    $this->session->unset_userdata('username');
+    $this->session->unset_userdata('level');
 	$this->session->sess_destroy();
 	redirect('auth');
     }

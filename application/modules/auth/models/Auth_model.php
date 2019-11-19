@@ -104,7 +104,11 @@ public function signIn(){
     if($cek){
         if($password == $cek['password']){
             $data=[
-                'siteman' => $cek['id_pengguna']
+                'siteman' => TRUE,
+                'id' => $cek['id_pengguna'],
+                'nama' => $cek['nama_lengkap'],
+                'username' => $cek['username'],
+                'level' => $cek['level']
             ];
             $this->session->set_userdata($data);
             redirect('admin');
