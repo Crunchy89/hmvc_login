@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Admin extends MY_Controller {
+class Profile extends MY_Controller {
 
     public function __construct(){
 		parent::__construct();
@@ -9,7 +9,7 @@ class Admin extends MY_Controller {
     }
 
     public function index(){
-        $data['title']="Profile";
+        $data['title'] = "Profile";
         admin_page('index',$data);
     }
 }
